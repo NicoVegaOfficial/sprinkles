@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Contenedor_Tarjeta {
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 100px;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+}
+
+.Tarjeta_Padre {
+    margin: 20px;
+    perspective: 1000px;
+}
+
+.Tarjeta_Padre:hover .Tarjeta {
+    transform: rotateY(180deg);
+}
+
+.Tarjeta {
+    width: 350px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 600ms;
+}
+
+.Tarjeta_Adelante {
+    background-size: cover;
+    background-position: center;
+}
+
+.Tarjeta_Adelante,
+.Tarjeta_Atras {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+}
+
+.Tarjeta_Atras {
+    transform: rotateY(180deg);
+    background-image: linear-gradient(45deg, #FF00FF, #BA55D3);
+}
+
+.Cuerpo_Tarjeta_Adelante {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFF00;
+    transform: translateZ(60px);
+}
+
+.Cuerpo_Tarjeta_Adelante > h1 {
+    font-family: "Louis George Cafe Light Italic";
+    font-size: 25px;
+    text-shadow: black 0.2em 0.2em 0.2em;
+}
+
+.CintaColor {
+    width: 93%;
+    height: 40px;
+    position: absolute;
+    background-image: linear-gradient(45deg, #FF00FF, #BA55D3);
+    opacity: .35;
+}
+
+.BG {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(45deg, #252525, black);
+    opacity: .45;
+    border-radius: 10px;
+}
+
+.Cuerpo_Tarjeta_Atras {
+    margin-top: 55%;
+    text-align: center;
+    transform: translateZ(60px);
+}
+
+.Cuerpo_Tarjeta_Atras:hover a {
+    color: yellow;
+}
+
+@-webkit-keyframes giro {
+    from {
+      transform: rotateY( 180deg);
+    }
+    to {
+      transform: rotateY( 0deg);
+    }
+  }
+  
+  @keyframes giro {
+    from {
+      transform: rotateY( 180deg);
+    }
+    to {
+      transform: rotateY( 0deg);
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .Contenedor_Tarjeta {
+      display: table-row-group;
+      justify-content: center;
+      margin-top: 3%;
+      width: 100%;
+    }
+    .Tarjeta {
+      height: 400px;
+    }
+    .Contenedor_Tarjeta:last-child {
+      margin-bottom: 3%;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .Contenedor_Tarjeta {
+      width: 100%;
+    }
+    .Tarjeta {
+      margin-left: 15%;
+      height: 400px;
+    }
+  }
